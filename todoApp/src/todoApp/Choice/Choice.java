@@ -12,7 +12,7 @@ public class Choice {
             if (todoChoice == 1) {
                 System.out.print("\ninput what you want to add: ");
                 String input = scanner.next();
-                newTodos.addTodo(input);
+                newTodos.addTodo(input);       
                 System.out.println("added \"" + input + "\" to todo list");
             }
             if (todoChoice == 2) {
