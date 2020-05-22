@@ -27,7 +27,7 @@ public class Todos {
 
     public void setTodo(int index, String input) {
         if(index < this.todos.size()) {
-            this.todos.set(index, new Todo(input));
+            this.todos.get(index).changeTitle(input);
         }
         if(index >= this.todos.size()) {
             CommandScripts.printErrorScript();
