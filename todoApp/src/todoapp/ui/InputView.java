@@ -2,15 +2,14 @@ package todoapp.ui;
 
 import java.util.Scanner;
 
-public class Listener {
+public class InputView {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static int awaitIntInput() {
+    public static int inputChoice() {
         return scanner.nextInt();
     }
 
-    public static String awaitStringInput() {
+    public static String inputWord() {
         return scanner.next();
     }
-
 }

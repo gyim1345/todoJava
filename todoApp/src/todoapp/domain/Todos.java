@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import todoapp.ui.Scripts;
 
 public class Todos {
-    private ArrayList<Todo> todos = new ArrayList<>();;
+    private ArrayList<Todo> todos = new ArrayList<>();
     public ArrayList<Todo> getTodo() {
         return this.todos;
     }

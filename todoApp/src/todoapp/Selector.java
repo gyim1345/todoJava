@@ -1,7 +1,7 @@
 package todoapp;
 
 import todoapp.domain.Todos;
-import todoapp.ui.Listener;
+import todoapp.ui.InputView;
 import todoapp.ui.Scripts;
 
 
@@ -14,7 +14,7 @@ public class Selector {
         if (depthNumber == 1) {
             if (todoChoice == 1) {
                 Scripts.printBeforeAddScript();
-                String input = Listener.awaitStringInput();
+                String input = InputView.inputWord();
                 newTodos.addTodo(input);
                 Scripts.printAfterAddScript(input);
             }
@@ -24,26 +24,26 @@ public class Selector {
             }
             if (todoChoice == 3) {
                 Scripts.printBeforeCompleteScript();
-                int index = Listener.awaitIntInput();
+                int index = InputView.inputChoice();
                 newTodos.moveCompletedTodo(index, completedTodos);
             }
             if (todoChoice == 4) {
                 Scripts.printBeforeDeleteScript();
-                int index = Listener.awaitIntInput();
+                int index = InputView.inputChoice();
                 newTodos.removeTodo(index);
             }
             if (todoChoice == 5) {
                 Scripts.printBeforeChangePriorityScript();
-                int index = Listener.awaitIntInput();
+                int index = InputView.inputChoice();
                 Scripts.printAfterPriorityScript();
-                int index2 = Listener.awaitIntInput();
+                int index2 = InputView.inputChoice();
                 newTodos.changeTodoPriority(index, index2);
             }
             if (todoChoice == 6) {
                 Scripts.printTargetEditScript();
-                int index = Listener.awaitIntInput();
+                int index = InputView.inputChoice();
                 Scripts.printModifyToEditScript();
-                String input = Listener.awaitStringInput();
+                String input = InputView.inputWord();
                 newTodos.setTodo(index, input);
             }
         }
@@ -56,7 +56,7 @@ public class Selector {
 
             if (todoChoice == 2) {
                 Scripts.printBeforeRemoveCompletedTodoScript();
-                int index = Listener.awaitIntInput();
+                int index = InputView.inputChoice();
                 completedTodos.removeTodo(index);
             }
         }
