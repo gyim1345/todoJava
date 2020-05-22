@@ -10,12 +10,12 @@ public class TodoApplication {
     public static void main(String[] args) {
 
         final int 임의의_초기값 = -1;
-        final int 등록 = 1;
-        final int 출력 = 2;
-        final int 완료 = 3;
-        final int 삭제 = 4;
-        final int 우선_순위_변경 = 5;
-        final int 제목_바꾸기 = 6;
+        final int TODO_등록 = 1;
+        final int TODO_출력 = 2;
+        final int TODO_완료 = 3;
+        final int TODO_삭제 = 4;
+        final int TODO_우선_순위_변경 = 5;
+        final int TODO_제목_바꾸기 = 6;
         final int 되돌아가기 = 0;
         final int APP_중지 = 0;
         final int COMPLETE_TODO_출력 =1;
@@ -44,13 +44,13 @@ public class TodoApplication {
                 while (todoChoice != 되돌아가기) {
                     Scripts.printTodoScript();
                     todoChoice = InputView.inputChoice();
-                    if (todoChoice == 등록) {
+                    if (todoChoice == TODO_등록) {
                         Scripts.printBeforeAddScript();
                         String userInput = InputView.inputWord();
                         newTodos.addTodo(userInput);
                         Scripts.printAfterAddScript(userInput);
                     }
-                    if (todoChoice == 출력) {
+                    if (todoChoice == TODO_출력) {
                         Scripts.printBeforeListAllTodosScript();
                         int count = 0;
                         for(Todo todo: newTodos.getAllTodos()){
@@ -58,25 +58,25 @@ public class TodoApplication {
                             count += 1;
                         }
                     }
-                    if (todoChoice == 완료) {
+                    if (todoChoice == TODO_완료) {
                         Scripts.printBeforeCompleteScript();
                         int commandNumber = InputView.inputChoice();
                         newTodos.moveCompletedTodo(commandNumber, completedTodos);
 
                     }
-                    if (todoChoice == 삭제) {
+                    if (todoChoice == TODO_삭제) {
                         Scripts.printBeforeDeleteScript();
                         int commandNumber = InputView.inputChoice();
                         newTodos.removeTodo(commandNumber);
                     }
-                    if (todoChoice == 우선_순위_변경) {
+                    if (todoChoice == TODO_우선_순위_변경) {
                         Scripts.printBeforeChangePriorityScript();
                         int fromNumber = InputView.inputChoice();
                         Scripts.printAfterPriorityScript();
                         int toNumber = InputView.inputChoice();
                         newTodos.changeTodoPriority(fromNumber, toNumber);
                     }
-                    if (todoChoice == 제목_바꾸기) {
+                    if (todoChoice == TODO_제목_바꾸기) {
                         Scripts.printTargetEditScript();
                         int commandNumber = InputView.inputChoice();
                         Scripts.printModifyToEditScript();
