@@ -8,7 +8,22 @@ import todoapp.ui.Scripts;
 public class TodoApplication {
     public static void main(String[] args) {
 
-        int choice = -1;
+        final int 임의의_초기값 = -1;
+        final int 등록 = 1;
+        final int 출력 = 2;
+        final int 완료 = 3;
+        final int 삭제 = 4;
+        final int 우선_순위_변경 = 5;
+        final int 제목_바꾸기 = 6;
+        final int 되돌아가기 = 0;
+        final int APP_중지 = 0;
+        final int TODO_조작 = 1;
+        final int COMPLETED_TODO_조작 = 2;
+        final int TODO_명령어_갯수 = 6;
+        final int COMPLETE_TODO_명령어_갯수 = 2;
+        final int ENTRY_명령어_갯수 = 2;
+
+        int choice = 임의의_초기값;
 
         Todos newTodos = new Todos();
         newTodos.addTodo("first todo");
@@ -17,83 +32,113 @@ public class TodoApplication {
 
         Todos completedTodos = new Todos();
 
-        while(choice != 0){
+        while(choice != APP_중지){
             Scripts.printEntryScript();
             choice = InputView.inputChoice();
 
-            if(choice == 1) {
-                int todoChoice = -1;
-                while (todoChoice != 0) {
+            if(choice == TODO_조작) {
+                int todoChoice = 임의의_초기값;
+                while (todoChoice != 되돌아가기) {
                     Scripts.printTodoScript();
                     todoChoice = InputView.inputChoice();
-                    if (todoChoice == 1) {
+                    if (todoChoice == 등록) {
                         Scripts.printBeforeAddScript();
-                        String input = InputView.inputWord();
-                   newTodos.addTodo(input);
-                        Scripts.printAfterAddScript(input);
+                        String userInput = InputView.inputWord();
+                        newTodos.addTodo(userInput);
+                        Scripts.printAfterAddScript(userInput);
                     }
-                    if (todoChoice == 2) {
+                    if (todoChoice == 출력) {
                         Scripts.printBeforeListAllTodosScript();
                         newTodos.getAllTodos();
                     }
-                    if (todoChoice == 3) {
+                    if (todoChoice == 완료) {
                         Scripts.printBeforeCompleteScript();
-                        int index = InputView.inputChoice();
-                        newTodos.moveCompletedTodo(index, completedTodos);
+                        int commandNumber = InputView.inputChoice();
+                        boolean done = newTodos.moveCompletedTodo(commandNumber, completedTodos);
+                        if(done == false) {
+                            Scripts.printErrorScript();
+                        }
+                        if(done == true) {
+                            Scripts.printSuccessScript();
+                        }
                     }
-                    if (todoChoice == 4) {
+                    if (todoChoice == 삭제) {
                         Scripts.printBeforeDeleteScript();
-                        int index = InputView.inputChoice();
-                        newTodos.removeTodo(index);
+                        int commandNumber = InputView.inputChoice();
+                        boolean done = newTodos.removeTodo(commandNumber);
+                        if(done == false) {
+                            Scripts.printErrorScript();
+                        }
+                        if(done == true) {
+                            Scripts.printSuccessScript();
+                        }
                     }
-                    if (todoChoice == 5) {
+                    if (todoChoice == 우선_순위_변경) {
                         Scripts.printBeforeChangePriorityScript();
-                        int index = InputView.inputChoice();
+                        int fromNumber = InputView.inputChoice();
                         Scripts.printAfterPriorityScript();
-                        int index2 = InputView.inputChoice();
-                        newTodos.changeTodoPriority(index, index2);
+                        int toNumber = InputView.inputChoice();
+                        boolean done = newTodos.changeTodoPriority(fromNumber, toNumber);
+                        if(done == false) {
+                            Scripts.printErrorScript();
+                        }
+                        if(done == true) {
+                            Scripts.printSuccessScript();
+                        }
                     }
-                    if (todoChoice == 6) {
+                    if (todoChoice == 제목_바꾸기) {
                         Scripts.printTargetEditScript();
-                        int index = InputView.inputChoice();
+                        int commandNumber = InputView.inputChoice();
                         Scripts.printModifyToEditScript();
-                        String input = InputView.inputWord();
-                        newTodos.setTodo(index, input);
+                        String newTitle = InputView.inputWord();
+                        boolean done = newTodos.setTodo(commandNumber, newTitle);
+                        if(done == false) {
+                            Scripts.printErrorScript();
+                        }
+                        if(done == true) {
+                            Scripts.printSuccessScript();
+                        }
                     }
-                    if ((todoChoice > 6) ){
+                    if ((todoChoice > TODO_명령어_갯수) ){
                         Scripts.printErrorScript();
                     }
                 }
             }
 
-            if(choice == 2) {
-                int todoChoice = -1;
-                while (todoChoice != 0) {
+            if(choice == COMPLETED_TODO_조작) {
+                int todoChoice = 임의의_초기값;
+                while (todoChoice != 되돌아가기) {
                     Scripts.printCompletedTodoScript();
                     todoChoice = InputView.inputChoice();
 
-                    if (todoChoice == 1) {
+                    if (todoChoice == 등록) {
                         Scripts.printBeforeListAllCompletedTodoScript();
                         completedTodos.getAllTodos();
                     }
 
-                    if (todoChoice == 2) {
+                    if (todoChoice == 출력) {
                         Scripts.printBeforeRemoveCompletedTodoScript();
-                        int index = InputView.inputChoice();
-                        completedTodos.removeTodo(index);
+                        int commandNumber = InputView.inputChoice();
+                        boolean done = completedTodos.removeTodo(commandNumber);
+                        if(done == false) {
+                            Scripts.printErrorScript();
+                        }
+                        if(done == true) {
+                            Scripts.printSuccessScript();
+                        }
                     }
 
-                    if (todoChoice > 2){
+                    if (todoChoice > COMPLETE_TODO_명령어_갯수){
                         Scripts.printErrorScript();
                     }
                 }
             }
 
-            if(choice == 0) {
+            if(choice == APP_중지) {
                 Scripts.printExitScript();
             }
 
-            if(choice > 2){
+            if(choice > ENTRY_명령어_갯수){
                 Scripts.printErrorScript();
             }
 

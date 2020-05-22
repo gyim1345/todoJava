@@ -1,5 +1,7 @@
 package todoapp.ui;
 
+import todoapp.domain.Todos;
+
 public class Scripts {
 
     public static void printBeforeAddScript() {
@@ -92,9 +94,17 @@ public class Scripts {
         System.out.println("WRONG INPUT TRY AGAIN");
     }
 
+    public static void printSuccessScript() {
+        System.out.println("Success");
+    }
+
     public static void printTodo(int count, String todoTitle) {
         System.out.println(count+ ": " + todoTitle);
     }
+
+//    public static void printTodos(Todos todo) {
+//        System.out.println(count+ ": " + todoTitle);
+//    }
 
     public static void printEmpty() {
         System.out.println("<Empty>");
