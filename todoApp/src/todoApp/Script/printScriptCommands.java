@@ -70,7 +70,9 @@ public class printScriptCommands {
         System.out.print("\n Input command number: ");
     }
 
-
+    public static void exitScript() {
+        System.out.println("\nBye Bye");
+    }
 
 
 

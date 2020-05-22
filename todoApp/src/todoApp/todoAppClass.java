@@ -1,4 +1,4 @@
-package todoApp.todoAppClass;
+package todoApp;
 
 import todoApp.Choice.Choice;
 import todoApp.Script.printScriptCommands;
@@ -42,7 +42,7 @@ public class todoAppClass {
             }
 
             if(choice == 0) {
-                System.out.println("\nBye Bye");
+                printScriptCommands.exitScript();
             }
         }
     }
