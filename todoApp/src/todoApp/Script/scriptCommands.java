@@ -1,6 +1,6 @@
-package todoApp.Commands;
+package todoApp.Script;
 
-public class Commands {
+public class scriptCommands {
     private int depthOne;
     private int depthTwo;
 

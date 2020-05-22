@@ -12,6 +12,8 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+ch02/
+HelloWorld/
 
 # Generated files
 .idea/**/contentModel.xml

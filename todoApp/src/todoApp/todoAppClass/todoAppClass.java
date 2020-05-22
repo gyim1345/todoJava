@@ -1,7 +1,7 @@
 package todoApp.todoAppClass;
 
 import todoApp.Choice.Choice;
-import todoApp.Commands.Commands;
+import todoApp.Script.scriptCommands;
 import todoApp.Todo.Todo;
 
 import java.util.Scanner;
@@ -20,13 +20,13 @@ public class todoAppClass {
         Todo completedTodos = new Todo();
 
         while(choice != 0){
-            Commands.printCommand(1,0);
+            scriptCommands.printCommand(1,0);
             choice = scanner.nextInt();
 
             if(choice == 1) {
                 int todoChoice = -1;
                 while (todoChoice != 0) {
-                    Commands.printCommand(1,1);
+                    scriptCommands.printCommand(1,1);
                     todoChoice = scanner.nextInt();
                     Choice.Choices(todoChoice, newTodos, completedTodos, 1);
                 }
@@ -35,7 +35,7 @@ public class todoAppClass {
             if(choice == 2) {
                 int todoChoice = -1;
                 while (todoChoice != 0) {
-                    Commands.printCommand(1,2);
+                    scriptCommands.printCommand(1,2);
                     todoChoice = scanner.nextInt();
                     Choice.Choices(todoChoice, newTodos, completedTodos, 2);
                 }
