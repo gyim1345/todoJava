@@ -1,7 +1,6 @@
 package todoapp;
 
 import todoapp.domain.Todos;
-import todoapp.domain.Selector;
 import todoapp.ui.scripts.CommandScripts;
 import todoapp.ui.Listener;
 

@@ -64,7 +64,12 @@ public class Todos {
             TodoScripts.printEmpty();
         }
         if(this.todos != null) {
-            TodoScripts.printAllTodo(this.todos);
+
+            int count = 0;
+            for(Todo todo: this.todos){
+                TodoScripts.printTodo(count, todo.getTitle());
+                count += 1;
+            }
         }
     }
 }

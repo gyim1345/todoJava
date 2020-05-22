@@ -7,12 +7,8 @@ import java.util.ArrayList;
 public class TodoScripts {
 
 
-    public static void printAllTodo(ArrayList<Todo> todos) {
-        int count = 0;
-        for(Todo todo: todos){
-            System.out.println(count+ ": " + todo.getTitle());
-            count += 1;
-        }
+    public static void printTodo(int count, String todoTitle) {
+            System.out.println(count+ ": " + todoTitle);
     }
 
     public static void printEmpty() {

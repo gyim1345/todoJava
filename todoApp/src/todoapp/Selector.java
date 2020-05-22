@@ -1,5 +1,6 @@
-package todoapp.domain;
+package todoapp;
 
+import todoapp.domain.Todos;
 import todoapp.ui.Listener;
 import todoapp.ui.scripts.ChoiceScripts;
 import todoapp.ui.scripts.CommandScripts;
