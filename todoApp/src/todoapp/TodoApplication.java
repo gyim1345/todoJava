@@ -1,7 +1,7 @@
 package todoapp;
 
 import todoapp.domain.Todos;
-import todoapp.ui.scripts.CommandScripts;
+import todoapp.ui.Scripts;
 import todoapp.ui.Listener;
 
 
@@ -18,13 +18,13 @@ public class TodoApplication {
         Todos completedTodos = new Todos();
 
         while(choice != 0){
-            CommandScripts.printEntryScript();
+            Scripts.printEntryScript();
             choice = Listener.awaitIntInput();
 
             if(choice == 1) {
                 int todoChoice = -1;
                 while (todoChoice != 0) {
-                    CommandScripts.printTodoScript();
+                    Scripts.printTodoScript();
                     todoChoice = Listener.awaitIntInput();
                     Selector.Choices(todoChoice, newTodos, completedTodos, choice);
                 }
@@ -33,18 +33,18 @@ public class TodoApplication {
             if(choice == 2) {
                 int todoChoice = -1;
                 while (todoChoice != 0) {
-                    CommandScripts.printCompletedTodoScript();
+                    Scripts.printCompletedTodoScript();
                     todoChoice = Listener.awaitIntInput();
                     Selector.Choices(todoChoice, newTodos, completedTodos, choice);
                 }
             }
 
             if(choice == 0) {
-                CommandScripts.printExitScript();
+                Scripts.printExitScript();
             }
 
             if(choice > 2){
-                CommandScripts.printErrorScript();
+                Scripts.printErrorScript();
             }
 
         }

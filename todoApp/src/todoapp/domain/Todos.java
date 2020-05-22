@@ -2,8 +2,7 @@ package todoapp.domain;
 
 import java.util.ArrayList;
 
-import todoapp.ui.scripts.CommandScripts;
-import todoapp.ui.scripts.TodoScripts;
+import todoapp.ui.Scripts;
 
 public class Todos {
     private ArrayList<Todo> todos = new ArrayList<>();;
@@ -21,7 +20,7 @@ public class Todos {
             this.todos.remove(index);
         }
         if(index >= this.todos.size()) {
-            CommandScripts.printErrorScript();
+            Scripts.printErrorScript();
         }
     }
 
@@ -30,7 +29,7 @@ public class Todos {
             this.todos.get(index).changeTitle(input);
         }
         if(index >= this.todos.size()) {
-            CommandScripts.printErrorScript();
+            Scripts.printErrorScript();
         }
     }
 
@@ -41,7 +40,7 @@ public class Todos {
             this.todos.set(fromIndex, temp);
         }
         if (fromIndex >= this.todos.size() || toIndex >= this.todos.size()) {
-            CommandScripts.printErrorScript();
+            Scripts.printErrorScript();
 
         }
     }
@@ -51,7 +50,7 @@ public class Todos {
             completedTodos.add(this.todos.remove(index));
         }
         if(index >= this.todos.size()) {
-            CommandScripts.printErrorScript();
+            Scripts.printErrorScript();
         }
     }
 
@@ -61,13 +60,13 @@ public class Todos {
 
     public void getAllTodos() {
         if(this.todos.size() == 0) {
-            TodoScripts.printEmpty();
+            Scripts.printEmpty();
         }
         if(this.todos != null) {
 
             int count = 0;
             for(Todo todo: this.todos){
-                TodoScripts.printTodo(count, todo.getTitle());
+                Scripts.printTodo(count, todo.getTitle());
                 count += 1;
             }
         }

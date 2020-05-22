@@ -2,8 +2,7 @@ package todoapp;
 
 import todoapp.domain.Todos;
 import todoapp.ui.Listener;
-import todoapp.ui.scripts.ChoiceScripts;
-import todoapp.ui.scripts.CommandScripts;
+import todoapp.ui.Scripts;
 
 
 public class Selector {
@@ -11,38 +10,39 @@ public class Selector {
     public static void Choices(int todoChoice, Todos newTodos, Todos completedTodos, int depthNumber) {
 
 
+
         if (depthNumber == 1) {
             if (todoChoice == 1) {
-                ChoiceScripts.printBeforeAddScript();
+                Scripts.printBeforeAddScript();
                 String input = Listener.awaitStringInput();
                 newTodos.addTodo(input);
-                ChoiceScripts.printAfterAddScript(input);
+                Scripts.printAfterAddScript(input);
             }
             if (todoChoice == 2) {
-                ChoiceScripts.printBeforeListAllTodosScript();
+                Scripts.printBeforeListAllTodosScript();
                 newTodos.getAllTodos();
             }
             if (todoChoice == 3) {
-                ChoiceScripts.printBeforeCompleteScript();
+                Scripts.printBeforeCompleteScript();
                 int index = Listener.awaitIntInput();
                 newTodos.moveCompletedTodo(index, completedTodos);
             }
             if (todoChoice == 4) {
-                ChoiceScripts.printBeforeDeleteScript();
+                Scripts.printBeforeDeleteScript();
                 int index = Listener.awaitIntInput();
                 newTodos.removeTodo(index);
             }
             if (todoChoice == 5) {
-                ChoiceScripts.printBeforeChangePriorityScript();
+                Scripts.printBeforeChangePriorityScript();
                 int index = Listener.awaitIntInput();
-                ChoiceScripts.printAfterPriorityScript();
+                Scripts.printAfterPriorityScript();
                 int index2 = Listener.awaitIntInput();
                 newTodos.changeTodoPriority(index, index2);
             }
             if (todoChoice == 6) {
-                ChoiceScripts.printTargetEditScript();
+                Scripts.printTargetEditScript();
                 int index = Listener.awaitIntInput();
-                ChoiceScripts.printModifyToEditScript();
+                Scripts.printModifyToEditScript();
                 String input = Listener.awaitStringInput();
                 newTodos.setTodo(index, input);
             }
@@ -50,19 +50,19 @@ public class Selector {
         if (depthNumber == 2) {
 
             if (todoChoice == 1) {
-                ChoiceScripts.printBeforeListAllCompletedTodoScript();
+                Scripts.printBeforeListAllCompletedTodoScript();
                 completedTodos.getAllTodos();
             }
 
             if (todoChoice == 2) {
-                ChoiceScripts.printBeforeRemoveCompletedTodoScript();
+                Scripts.printBeforeRemoveCompletedTodoScript();
                 int index = Listener.awaitIntInput();
                 completedTodos.removeTodo(index);
             }
         }
 
         if ((todoChoice > 6 && depthNumber == 1) || (todoChoice>2 && depthNumber ==2)){
-            CommandScripts.printErrorScript();
+            Scripts.printErrorScript();
         }
 
     }
