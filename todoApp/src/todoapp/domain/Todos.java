@@ -2,8 +2,9 @@ package todoapp.domain;
 
 import java.util.ArrayList;
 
-public class Todos {
+public class Todos implements TodosInterface {
     private ArrayList<Todo> todos = new ArrayList<>();
+
     public ArrayList<Todo> getTodo() {
         return this.todos;
     }
@@ -39,7 +40,7 @@ public class Todos {
         }
     }
 
-    private void add(Todo movedTodos) {
+    public void add(Todo movedTodos) {
         todos.add(movedTodos);
     }
 

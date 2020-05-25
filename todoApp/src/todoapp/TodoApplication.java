@@ -2,29 +2,13 @@ package todoapp;
 
 import todoapp.domain.Todo;
 import todoapp.domain.Todos;
+import todoapp.ui.CommandNumbers;
+import todoapp.ui.Commands;
 import todoapp.ui.InputView;
 import todoapp.ui.Scripts;
 
-
-public class TodoApplication {
+public class TodoApplication implements CommandNumbers {
     public static void main(String[] args) {
-
-        final int 임의의_초기값 = -1;
-        final int TODO_등록 = 1;
-        final int TODO_출력 = 2;
-        final int TODO_완료 = 3;
-        final int TODO_삭제 = 4;
-        final int TODO_우선_순위_변경 = 5;
-        final int TODO_제목_바꾸기 = 6;
-        final int 되돌아가기 = 0;
-        final int APP_중지 = 0;
-        final int COMPLETE_TODO_출력 =1;
-        final int COMPLETE_TODO_삭제 =2;
-        final int TODO_조작 = 1;
-        final int COMPLETED_TODO_조작 = 2;
-        final int TODO_명령어_갯수 = 6;
-        final int COMPLETE_TODO_명령어_갯수 = 2;
-        final int ENTRY_명령어_갯수 = 2;
 
         int choice = 임의의_초기값;
 
@@ -44,6 +28,11 @@ public class TodoApplication {
                 while (todoChoice != 되돌아가기) {
                     Scripts.printTodoScript();
                     todoChoice = InputView.inputChoice();
+                    for (Commands cmd : Commands.values()) {
+                        if (cmd.getCommand() == todoChoice) {
+                            cmd.getScript(newTodos);
+                        }
+                    }
                     if (todoChoice == TODO_등록) {
                         Scripts.printBeforeAddScript();
                         String userInput = InputView.inputWord();

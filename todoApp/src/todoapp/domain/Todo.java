@@ -12,6 +12,7 @@ public class Todo {
         this.title = input;
     }
 
+
     public String getTitle() {
         return this.title;
     }
