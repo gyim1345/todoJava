@@ -27,9 +27,9 @@ public class Todos implements TodosInterface {
 
     public void changeTodoPriority(int fromIndex, int toIndex) {
         if (fromIndex < this.todos.size() && toIndex < this.todos.size()) {
-            Todo temp = this.todos.get(toIndex);
-            this.todos.set(toIndex, this.todos.get(fromIndex));
-            this.todos.set(fromIndex, temp);
+            Todo targetTodo = this.todos.get(fromIndex);
+            this.removeTodo(fromIndex);
+            this.todos.add(toIndex, targetTodo);
 
         }
     }

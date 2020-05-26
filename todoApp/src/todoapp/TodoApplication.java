@@ -28,16 +28,16 @@ public class TodoApplication implements CommandNumbers {
                 while (todoChoice != 되돌아가기) {
                     Scripts.printTodoScript();
                     todoChoice = InputView.inputChoice();
-                    for (Commands cmd : Commands.values()) {
-                        if (cmd.getCommand() == todoChoice) {
-                            cmd.getScript(newTodos);
-                        }
+//                    for (Commands cmd : Commands.values()) {
+//                        if (cmd.getCommand() == todoChoice) {
+//                            cmd.getScript(todoChoice);
+//                        }
                     }
                     if (todoChoice == TODO_등록) {
-                        Scripts.printBeforeAddScript();
-                        String userInput = InputView.inputWord();
+                        Scripts.printBeforeAddScript(); // view 안에서 실행 script가 노출 도ㅚ면 안도됨 . gui 로 바뀌면 여기서 다 터짐
+                        String userInput = InputView.inputWord();//
                         newTodos.addTodo(userInput);
-                        Scripts.printAfterAddScript(userInput);
+                        Scripts.printAfterAddScript(userInput);//script를 짜라고 ㅗ하는게 아니라 todo add를 작업을 다 했다고만 알려주고 거기서 이것을 완료를 했으니깐 알맞은 처리를 거기서 작업을 하도록 하는게 좋다.
                     }
                     if (todoChoice == TODO_출력) {
                         Scripts.printBeforeListAllTodosScript();
