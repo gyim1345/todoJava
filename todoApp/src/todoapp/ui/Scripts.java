@@ -8,8 +8,8 @@ public class Scripts {
         System.out.print("input what you want to add: ");
     }
 
-    public static void printAfterAddScript(String input) {
-        System.out.println("added \"" + input + "\" to todo list");
+    public static void printAfterAddScript() {
+        System.out.println("added to todo list");
     }
 
     public static void printBeforeListAllTodosScript() {
